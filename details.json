@@ -1,0 +1,10 @@
+{
+    "postgresql": {
+      "host": "localhost",
+      "dbname": "all_notifications",
+      "user": "admin",
+      "password": "admin123",
+      "port": 5432
+    }
+  }
+  
