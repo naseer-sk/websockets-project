@@ -1,0 +1,34 @@
+1. Create a Notification Function
+This function will send notifications to a specified channel whenever a new row is inserted into the notifications table.
+
+sql
+    CREATE OR REPLACE FUNCTION notify_notification()
+    RETURNS TRIGGER AS $$
+    BEGIN
+        PERFORM pg_notify('notifications_channel', 
+                        json_build_object('id', NEW.id, 
+                                            'date_time', NEW.date_time, 
+                                            'message', NEW.message, 
+                                            'status', NEW.status)::text);
+        RETURN NEW;
+    END;
+    $$ LANGUAGE plpgsql;
+
+2. Create a Trigger
+This trigger will call the notify_notification() function after every INSERT on the notifications table.
+
+sql
+    CREATE TRIGGER notification_trigger
+    AFTER INSERT ON notifications
+    FOR EACH ROW
+    EXECUTE FUNCTION notify_notification();
+
+3. Test the Notification Setup
+Insert a row into the notifications table to test if the notification is correctly triggered and sent.
+
+sql
+    INSERT INTO notifications (date_time, message, status)
+    VALUES ('2024-09-14 10:00:00', 'Test notification', 'SUCCESS');
+    4. Verify the LISTEN Command
+    In your psql session or within your application, you can start listening to the notifications channel:
+
