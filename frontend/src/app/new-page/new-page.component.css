@@ -1,0 +1,36 @@
+.options-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 32vw;
+    margin-bottom: 10px;
+}
+
+.search-input-el{
+    min-width: 32vw;
+    text-align: center;
+}
+
+.mark-as-read-btn {
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 10px;
+}
+
+.mark-as-read-btn:disabled {
+    border-color: #d3d3d3; /* Light grey border */
+    color: #d3d3d3; /* Light grey text */
+    cursor: not-allowed;
+    background-color: transparent; /* Keep background transparent */
+}
+
+/* Disabled button style for "Delete" */
+.delete-btn:disabled {
+    background-color: transparent; /* Light grey background */
+    border-color: #d3d3d3; /* Light grey border */
+    color: #d3d3d3; /* Light grey text */
+    cursor: not-allowed;
+}

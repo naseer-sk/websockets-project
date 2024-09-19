@@ -1,0 +1,10 @@
+{
+    "postgresql": {
+      "host": "localhost",
+      "dbname": "my_db",
+      "user": "admin",
+      "password": "admin123",
+      "port": 5432
+    }
+  }
+  

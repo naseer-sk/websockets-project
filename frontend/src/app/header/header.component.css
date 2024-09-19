@@ -1,0 +1,28 @@
+
+.navbar-header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+/* Adjust margin and padding as needed */
+.main-ct {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* Align items to the ends */
+}
+
+/* Ensure proper height for the header */
+.navbar-header {
+    margin-top: 0;
+    height: 10vh;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow if needed */
+}
+
+/* Optional: Add global padding/margins if needed */
+body, html {
+    margin: 0;
+    padding: 0;
+}

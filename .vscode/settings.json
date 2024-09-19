@@ -6,7 +6,7 @@
             "port": 5432,
             "driver": "PostgreSQL",
             "name": "pg local",
-            "database": "all_notifications",
+            "database": "my_db",
             "username": "admin",
             "password": "admin123",
             "connectionTimeout": 30

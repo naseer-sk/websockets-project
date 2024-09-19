@@ -1,0 +1,18 @@
+.notification-card{
+    min-height: 10vh;
+    min-width: 30vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-width:1px;
+    border-left-width: 8px;
+    border-color: black;
+    border-left-color: red;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.notification-card-read{
+    border-left-color: grey;
+}

@@ -1,0 +1,11 @@
+<div class="rounded p-4 relative border bg-white mb-2 w-full notification-card" 
+      [ngClass]="{'notification-card-read': notification.isread}">
+    <div>
+      <p class="text-gray-500 text-sm">{{ notification.dateTime | date:'MMM dd, yyyy hh:mm a' }}</p>
+      <p class="notification-msg">{{notification.message}}</p>
+    </div>
+
+    <button (click)="deleteData()">
+      <i class="fa-solid fa-trash-can absolute right-3 text-lg cursor-pointer top-6"></i>
+    </button>
+</div>

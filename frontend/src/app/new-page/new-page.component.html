@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="flex flex-col items-center mt-10">
+  <h2 class="font-semibold text-3xl text-slate-800">Notifications</h2>
+  
+  <div class="mt-8 w-full max-w-md mb-10">
+    <input 
+      type="search" 
+      placeholder="Search" 
+      class="block w-full rounded border border-solid border-neutral-200 bg-transparent px-3 py-2 text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-neutral-500 focus:z-[3] focus:border-primary focus:shadow-inset focus:outline-none dark:border-white/10 dark:text-white dark:placeholder:text-neutral-200 dark:focus:border-primary" 
+      (input)="filterNotification()" 
+      [(ngModel)]="searchTerm">
+  </div>
+
+  <div class="options-container">
+    <p class="mark-as-read-btn" (click)="selectAllNotifications()">Select All</p>
+    <div>
+      <button class="mark-as-read-btn" [disabled]="!hasSelectedNotifications()" (click)="markSelectedAsRead()">Mark as Read</button>
+      <button class="delete-btn mark-as-read-btn" [disabled]="!hasSelectedNotifications()" (click)="deleteSelectedNotifications()">Delete</button>
+    </div>
+  </div>
+
+  <div *ngIf="!filteredNotifications.length && !showAll" class="mt-20">
+    <h1 class="text-gray-300 font-semibold text-4xl">No Notifications</h1>
+  </div>
+
+  <div *ngIf="!showAll && filteredNotifications.length" style="overflow-y: auto;">
+    <div *ngFor="let notification of filteredNotifications">
+      <div class="flex items-center">
+        <input 
+          type="checkbox" 
+          [(ngModel)]="notification.selected" 
+          (change)="onCheckboxChange()"
+          class="mr-2">
+        <app-message-card [notification]="notification"></app-message-card>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showAll && allNotifications.length" style="overflow-y: auto;">
+    <div *ngFor="let notification of allNotifications">
+      <div class="flex items-center">
+        <input 
+          type="checkbox" 
+          [(ngModel)]="notification.selected" 
+          class="mr-2">
+        <app-message-card [notification]="notification"></app-message-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4 mt-4" *ngIf="!showAll">
+    <button class="text-white text-lg border rounded-md bg-black w-24 h-12" (click)="viewAll()">View All</button>
+  </div>
+</div>
